@@ -29,7 +29,7 @@ describe('Cinema', function () {
   });
 
   it('should be able to get a list of film titles', function () {
-    const actual = cinema.getTitles(films);
+    const actual = cinema.getTitles();
     assert.deepStrictEqual(actual[0], "Moonlight");
   });
 
@@ -63,6 +63,11 @@ describe('Cinema', function () {
     const actual = cinema.totalRunningTime();
     assert.strictEqual(actual, 622)
   });
+
+  it('should be able to filter films by year', function () {
+    const actual = cinema.filmsByProperty('year', 2016);
+    assert.deepStrictEqual(actual, [moonlight])
+  })
 
 
 });

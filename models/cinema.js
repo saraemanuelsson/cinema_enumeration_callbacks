@@ -2,8 +2,8 @@ const Cinema = function (films) {
   this.films = films;
 };
 
-Cinema.prototype.getTitles = function (films) {
-  const filmTitles = films.map((film)=>{
+Cinema.prototype.getTitles = function () {
+  const filmTitles = this.films.map((film)=>{
     return film.title
   })
 
@@ -43,6 +43,13 @@ Cinema.prototype.totalRunningTime = function () {
     return runningTotal + film.length
   }, 0)
   return total
+}
+
+Cinema.prototype.filmsByProperty = function (property, value) {
+  const films = this.films.filter((film) => {
+    return film[property] === value
+  })
+  return films
 }
 
 
