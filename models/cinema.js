@@ -31,6 +31,12 @@ Cinema.prototype.checkFilmsYear = function (year) {
   return result
 }
 
+Cinema.prototype.checkFilmsLength = function (length) {
+  const films = this.films.filter((film) => {
+    return film.length > length
+  })
+  return films
+}
 
 
 module.exports = Cinema;
